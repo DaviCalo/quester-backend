@@ -1,43 +1,44 @@
 ![Logo-Quester](https://github.com/user-attachments/assets/ca7f3b26-62f3-47ce-ac13-0838167d2d74)
 
 <h4>
-<p>Sumário:</p>
- <a href="#sobre"><p>1. Sobre</p></a> 
- <a href="#pre-requisito"><p>2. Pré-requisito</p></a>
- <a href="#como-rodar"><p>3. Como rodar</p></a>
+<p>Summary:</p>
+ <a href="#about"><p>1. About</p></a> 
+ <a href="#prerequisite"><p>2. Prerequisite</p></a>
+ <a href="#how-to-run"><p>3. How to Run</p></a>
 </h4>
 
-<a name="sobre"></a>
-## :computer: Sobre
+<a name="about"></a>
+## :computer: About
 
-O backend de uma aplicação web chamada Quester, que permite que usuários criem partidas, criando perguntas e respostas para testar os conhecimentos de outros usuários. Um sistema intuitivo, seguro, rápido e adaptado às necessidades dos alunos e professores, proporcionando experiências de aprendizado e avaliação satisfatórias. Utilizando Node.js e mongoDB.
+The backend of a web application called Quester, which allows users to create games by creating questions and answers to test the knowledge of other users. An intuitive, secure, fast system adapted to the needs of students and teachers, providing satisfactory learning and assessment experiences. Built using Node.js and MongoDB.
 
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
-<a name="como-rodar"></a>
-## :grey_question: Como rodar
-### Clonando o repositório
+<a name="how-to-run"></a>
+## :grey_question: How to Run
+### Cloning the Repository
 
 ```shell
 git clone https://github.com/DaviCalo/quester-backend.git
 ```
 
-<a name="pre-requisito"></a>
-### Pré-requisito
+<a name="prerequisite"></a>
+### Prerequisite
 
 - Node.js
+- MongoDB URI
 
-### Ligando o servidor Backend
+### Starting the Backend Server
 
-Crie um arquivo .env no diretório raiz e adicione as seguintes variáveis ​​de ambiente:
+Create a `.env` file in the root directory and add the following environment variables:
 
 ```env
 PORT=3000
 MONGO_DB_URI=your-mongodb-uri
 ```
 
-Abra a linha de comando na raiz do projeto e digite o comando.
+Open the command line in the project root and enter the command:
 
 ```shell
 npm install
