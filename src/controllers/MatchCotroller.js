@@ -11,9 +11,11 @@ exports.createMatch = async (req, res) => {
     const DMYdata = DMYdate(data);
     try {
         const User = await UserModel.findById(req.body._id);
+
         if(User === null) {
             return res.status(404).json({ error: "user not found" });
         }
+
         const questionsaArray = [];
 
         for(let i = 0; i < req.body.questions.length; i++) {
@@ -58,6 +60,7 @@ exports.createMatch = async (req, res) => {
                 "id_match": match._id,
             }
         );	
+
     } catch (err) {
         if(err.path === '_id') {
             return res.status(404).json({ error: "user not found" });
@@ -94,6 +97,7 @@ exports.findMatch = async (req, res) => {
         }
 
         return res.status(200).json(match);
+
     } catch (err) {
         if(err.path === "_id") {
             return res.status(404).json({ error: "match not found" });
@@ -125,6 +129,7 @@ exports.findMatchesHistory = async (req, res) => {
         }
 
         res.status(200).json({ "created_matches": createdMatches, "participated_matches": participatedMatches });
+
     } catch (err) {
         if(err.messageFormat === undefined) {
             res.status(404).json({ error: "user not found" });
@@ -139,10 +144,13 @@ exports.changeStatus = async (req, res) => {
         const changeStatus = await MatchModel.findByIdAndUpdate(
             req.body._id_match, { status: req.body.status },
         )
+
         if(changeStatus === null) {
             return res.status(404).json({ error: "match not found" });
         }
+
         return res.status(200).json({ "status": "status changed" });
+
     } catch (err) {
         return res.status(500).json({ error: err.message });
     }
@@ -188,6 +196,7 @@ exports.finishedMatch = async (req, res) => {
         }
 
         return res.status(200).json({ "status": "match finished" });
+
     } catch (err) {
         return res.status(500).json({ error: err.message });
     }
@@ -204,6 +213,7 @@ exports.getRank = async (req, res) => {
         });
 
         return res.status(200).json(players);
+        
     } catch (err) {
         return res.status(500).json({ error: err.message });
     }

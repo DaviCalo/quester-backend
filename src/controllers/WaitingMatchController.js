@@ -37,6 +37,7 @@ exports.createWaitingMatch = async (req, res) => {
         );
         
         return res.status(201).json({ "status": "waiting match created" });
+
     } catch (err) {
         console.log(err);
         if(err.path == '_id'){
@@ -65,6 +66,7 @@ exports.getWaitingMatch = async (req, res) => {
         WaitingMatchTem.questions = questions;
         
         return res.status(200).json(WaitingMatchTem);
+
     } catch (err) {
         if(err.path == '_id'){
             return res.status(404).json({ error: "waiting match not found" });
@@ -85,6 +87,7 @@ exports.getAllWaitingMatches = async (req, res) => {
         }
 
         return res.status(200).json(responseWaitingMatches);
+
     } catch (err) {
         if(err.path == '_id'){
             return res.status(404).json({ error: "waiting match not found" });
@@ -112,6 +115,7 @@ exports.deleteWaitingMatch = async (req, res) => {
         const deleteWaitingMatch = await WaitingMatchModel.findByIdAndDelete(req.params.idwaiting);
 
         return res.status(200).json({ status: "waiting match deleted" });
+
     } catch (err) {
         if(err.path == '_id'){
             return res.status(404).json({ error: "user or waiting match not found" });
@@ -143,6 +147,7 @@ exports.updateWaitingMatch = async (req, res) => {
         );
 
         return res.status(200).json({ status: "waiting match updated" });
+
     } catch (err) {
         if(err.path == '_id'){
             return res.status(404).json({ error: "waiting match not found" });
@@ -182,6 +187,7 @@ exports.duplicateWaitingMatch = async (req, res) => {
         );
         
         return res.status(201).json({ "status": "waiting match duplicated" });
+        
     } catch (err) {
         if(err.path == '_id'){
             return res.status(404).json({ error: "user or waiting match not found" });

@@ -14,6 +14,15 @@ The backend of a web application called Quester, which allows users to create ga
 
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+
+Current Status: 🟡 In Development
+
+<a name="prerequisite"></a>
+## 📋 Prerequisite
+
+- Node.js
+- MongoDB URI
 
 <a name="how-to-run"></a>
 ## :grey_question: How to Run
@@ -23,12 +32,6 @@ The backend of a web application called Quester, which allows users to create ga
 git clone https://github.com/DaviCalo/quester-backend.git
 ```
 
-<a name="prerequisite"></a>
-### Prerequisite
-
-- Node.js
-- MongoDB URI
-
 ### Starting the Backend Server
 
 Create a `.env` file in the root directory and add the following environment variables:
@@ -36,6 +39,7 @@ Create a `.env` file in the root directory and add the following environment var
 ```env
 PORT=3000
 MONGO_DB_URI=your-mongodb-uri
+JWT_SECRET=your-jwt-secret
 ```
 
 Open the command line in the project root and enter the command:

@@ -37,6 +37,7 @@ exports.createQuestion = async (req, res) => {
         )
 
         return res.status(200).json({ status: "question created" });
+
     } catch (err) {
         if(err.path === '_id') {
             return res.status(404).json({ error: "user not found" });
@@ -50,11 +51,14 @@ exports.findQuestions = async (req, res) => {
     try {
         let questionsOBJ = []
         const allQuestions = await UserModel.findById(req.params.id).select('questions');
+
         for (let i = 0; i < allQuestions.questions.length; i++) {
             const teste = await QuestionModel.findById(allQuestions.questions[i])
             questionsOBJ.push(teste);
         }
+
         return res.status(200).json({ questions: questionsOBJ });
+
     } catch (err) {
         if(err.path === '_id') {
             return res.status(404).json({ error: "user not found" });
@@ -87,6 +91,7 @@ exports.updateQuestion = async (req, res) => {
         
 
         return res.status(200).json({ status: "question updated" });
+
     } catch (err) {
         if(err.path == '_id'){
             return res.status(404).json({ error: "user or question not found" });
@@ -132,6 +137,7 @@ exports.duplicateQuestion = async (req, res) => {
         )
 
         return res.status(200).json({ status: "question duplicated" });
+
     } catch (err) {
         return res.status(500).json({ error: err.message });
     }
@@ -140,14 +146,17 @@ exports.duplicateQuestion = async (req, res) => {
 
 exports.deleteQuestion = async (req, res) => {
     try {
-        var idUser = req.params.iduser;
-        var idQuestion = req.params.idquestion;
-        var idUserString = idUser.toString();
+        const idUser = req.params.iduser;
+        const idQuestion = req.params.idquestion;
+        const idUserString = idUser.toString();
+
         const deleteQuestionUser = await UserModel.findByIdAndUpdate(
             idUserString,
             { $pull: { questions: idQuestion } }
         );
+
         return res.status(200).json({ status: "question deleted" });
+
     } catch (err) {
         console.log(err)
         if(err.path == '_id'){
@@ -162,11 +171,12 @@ exports.deleteQuestion = async (req, res) => {
 
 exports.getQuestionByID = async (req, res) => {
     try {
-        var idQuestion = req.params.idquestion;
+        const idQuestion = req.params.idquestion;
         
         const question = await QuestionModel.findById(idQuestion);
 
         return res.status(200).json(question);
+
     } catch (err) {
         console.log(err)
         if(err.path == 'questions'){
