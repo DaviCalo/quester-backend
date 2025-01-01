@@ -22,7 +22,7 @@ routes.post('/signup', userController.createUser);
 routes.post('/login', userController.findUser);
 routes.post('/user', verifyToken, userController.getUser);
 routes.put('/user', verifyToken, userController.chargeUser);
-routes.put('/change-profile-photo/:id', verifyToken, upload.single('profile-photo'), userController.changeProfilePhoto);
+routes.put('/change-profile-photo/:id', verifyToken, upload.single('profilePhoto'), userController.changeProfilePhoto);
 routes.get('/profile-photo/:id', verifyToken, userController.profilePhoto);
 routes.delete('/user/:id', verifyToken, userController.deleteUser);
 
